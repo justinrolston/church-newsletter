@@ -4,9 +4,34 @@ Weekly curated digest of Southern Baptist, Reformed, and broader theological new
 
 ## Layout
 
+- Repo lives at `~/Code/church-newsletter`; GitHub `justinrolston/church-newsletter` (public).
 - `issues/YYYY-MM-DD-issue-NN.md` — source of truth. One file per issue. Never edit past issues except to fix a factual error (note the correction at the bottom).
-- `scripts/build.py` — renders `docs/` (HTML, MP3 via edge-tts, `feed.xml`, `issues.json`). Run after writing an issue. Do not hand-edit `docs/`.
+- `scripts/build.py` — renders `docs/` (HTML, MP3 via edge-tts, `feed.xml`, `issues.json`). Run after writing an issue. Do not hand-edit `docs/`. All site CSS, the page shell, and the renderers live in this one file.
 - `docs/audio/*.txt` — the exact script read aloud; check it if audio sounds wrong.
+- `.venv/` holds the deps (`markdown python-frontmatter edge-tts mutagen`). Always `source .venv/bin/activate` first.
+
+## Site structure (what build.py emits)
+
+- `docs/index.html` — the **latest issue rendered in full**, labeled "Latest issue", with a canonical link to its permanent URL.
+- `docs/issues/index.html` — the "All issues" list (issue number + date, lede as the link, Read / Listen / Markdown).
+- `docs/issues/<slug>.html` and `.md`, `docs/audio/<slug>.mp3` and `.txt`, `docs/feed.xml` (podcast RSS), `docs/issues.json` (newest first; `html_url`, `md_url`, `mp3_url`).
+- `docs/CNAME` = `churchnews.therolstons.com`. GitHub sometimes rewrites this file on `main` when the Pages domain is touched; `git pull --rebase` before pushing if a push is rejected.
+
+## Design rules
+
+- Modern briefing look: Instrument Sans (Google Fonts) with a system fallback, 17px body, 660px measure, left aligned. Cool off-white page with a marine-blue accent; dark palette follows the system and can be overridden by the sun/moon toggle in the masthead (stored in `localStorage.theme`, applied as `data-theme` on `<html>`).
+- No cream backgrounds, red accents, all-caps tracked labels, or middle-dot separators.
+- Issue page order: date, issue number as the headline, the lede as a large paragraph, the Listen card (play mark + duration), then the five beats. Each beat header gets a short colored rule (`b1`–`b5`, matched by keyword in `BEATS`). Emoji stay in the markdown but are stripped from the rendered headers.
+- Trailing `— [Source](url) · [Source](url)` on an item is turned into small source tags, so keep that exact pattern in the markdown.
+- "For the Elder's Desk" renders as an accented panel. The issue's closing `*State of the Church Today · Compiled …*` line stays in the markdown but is stripped from the HTML so it does not double up with the page footer.
+- Footer is two short spans: publishing cadence and "Powered by the Bishop" (https://bishop.therolstons.com/). Keep it that spare.
+- Preview locally with `python3 -m http.server 8765 --directory docs`. Check light, dark, and a 375px viewport before pushing design changes.
+
+## Publishing
+
+- GitHub Pages serves `docs/` from `main`, custom domain `churchnews.therolstons.com`, HTTPS enforced. DNS is a CNAME at Google Cloud DNS pointing to `justinrolston.github.io`.
+- The weekly run is the Cowork scheduled task `church-newsletter-weekly` (Sundays 7:00am local, prompt in `JOB-PROMPT.md`). It only runs while the Claude desktop app is open. It replaced the old `watchmans-brief-weekly` task; the vault's `Justin's Note/Newsletter/` folder is an archive only.
+- If an issue already went out this week, the job should skip rather than publish a thin second issue.
 
 ## Weekly job (Sundays)
 

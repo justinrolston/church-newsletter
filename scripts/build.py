@@ -30,8 +30,11 @@ CSS = """
 :root{color-scheme:light dark;
 --bg:#f6f7f7;--ink:#171d1c;--muted:#5d6866;--rule:#d8dedc;--panel:#ffffff;--accent:#1d5a86;--accent-ink:#ffffff;
 --b1:#1d5a86;--b2:#2a7f6f;--b3:#6b4f9e;--b4:#b3552b;--b5:#5f6b73}
-@media(prefers-color-scheme:dark){:root{--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
---b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae}}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
+--b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
+--b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae;color-scheme:dark}
+:root[data-theme=light]{color-scheme:light}
 *{box-sizing:border-box}
 html{font-size:17px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -41,7 +44,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
 header.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:26px 0 14px;border-bottom:1px solid var(--rule)}
 header.masthead .wordmark{font-weight:700;font-size:1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
 header.masthead .wordmark:hover{color:var(--accent)}
-header.masthead nav{font-size:.85rem;display:flex;gap:18px}
+header.masthead nav{font-size:.85rem;display:flex;gap:18px;align-items:center}
+.theme{appearance:none;border:1px solid var(--rule);background:var(--panel);color:var(--muted);width:30px;height:30px;border-radius:50%;padding:0;display:grid;place-items:center;cursor:pointer}
+.theme:hover{color:var(--accent);border-color:var(--accent)}
+.theme svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme .moon{display:none}
+:root[data-theme=dark] .theme .sun{display:none}:root[data-theme=dark] .theme .moon{display:block}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .theme .sun{display:none}:root:not([data-theme=light]) .theme .moon{display:block}}
 header.masthead nav a{color:var(--muted);text-decoration:none}
 header.masthead nav a:hover{color:var(--accent)}
 .issuehead{padding:44px 0 8px}
@@ -74,8 +83,9 @@ h1.title{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;font-weight:70
 .body .elder blockquote{margin:0 0 16px;padding:0;font-size:1.05rem;line-height:1.6}
 .body .elder blockquote p{margin:0 0 14px}
 .body>p:last-child em{font-style:normal;font-size:.86rem;color:var(--muted)}
-footer.foot{font-size:.86rem;color:var(--muted);margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);line-height:1.7}
-footer.foot a{color:var(--muted)}
+footer.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.86rem;color:var(--muted);margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);line-height:1.6}
+footer.foot a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+footer.foot a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .index-intro{padding:44px 0 10px}
 .index-intro h1{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 10px}
 .index-intro p{margin:0;color:var(--muted);font-size:1.05rem;max-width:34em}
@@ -100,12 +110,16 @@ def page(title, body, extra_head=""):
 <link rel="alternate" type="application/rss+xml" title="{TITLE}" href="{SITE}/feed.xml">{extra_head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<style>{CSS}</style></head><body><div class="wrap">
+<style>{CSS}</style>
+<script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script></head><body><div class="wrap">
 <header class="masthead"><a class="wordmark" href="{SITE}/">{TITLE}</a>
-<nav><a href="{SITE}/issues/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a></nav></header>
+<nav><a href="{SITE}/issues/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a>
+<button class="theme" type="button" aria-label="Switch between light and dark mode" title="Light or dark mode">{SUN_SVG}{MOON_SVG}</button></nav></header>
 {body}
-<footer class="foot">{TITLE} publishes every Sunday morning. <a href="{SITE}/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.<br>Powered by <a href="https://bishop.therolstons.com/">the Bishop</a>.</footer>
-</div></body></html>"""
+<footer class="foot"><span>New issues every Sunday morning. Corrections and tips welcome.</span><span>Powered by <a href="https://bishop.therolstons.com/">the Bishop</a></span></footer>
+</div>
+<script>document.querySelector(".theme").addEventListener("click",function(){{var r=document.documentElement,d=r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),n=d==="dark"?"light":"dark";r.dataset.theme=n;try{{localStorage.setItem("theme",n)}}catch(e){{}}}});</script>
+</body></html>"""
 
 def load_issues():
     out = []
@@ -128,6 +142,8 @@ def load_issues():
     return sorted(out, key=lambda i: (i["date"], i["issue"]))
 
 BEATS = [("SBC", "b1"), ("Reformed", "b2"), ("Theology", "b3"), ("Culture", "b4"), ("Also", "b5")]
+SUN_SVG = '<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
+MOON_SVG = '<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
 PLAY_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>'
 
 def beat_class(text):
@@ -161,6 +177,8 @@ def render_issue(i, has_audio, home=False):
     # wrap the Elder's Desk section in the accented panel
     body_html = re.sub(r"(<h2[^>]*>For the Elder.*?)(?=<hr\s*/?>|<p><em>State of the Church Today)",
                        r'<div class="elder">\1</div>', body_html, flags=re.S)
+    # drop the markdown sign-off line (and its rule); the page footer carries that
+    body_html = re.sub(r"(<hr\s*/?>\s*)?<p><em>State of the Church Today\b.*?</em></p>\s*$", "", body_html, flags=re.S)
     head = (f'<div class="issuehead"><p class="date">{"Latest issue &nbsp; " if home else ""}{i["date"].strftime("%A, %B %-d, %Y")}</p>'
             f'<h1 class="title">{html.escape(short_title(i["title"]))}</h1></div>')
     audio = ""

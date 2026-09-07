@@ -1,77 +1,110 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>State of the Church Today — Issue 11</title>
+<meta name="description" content="A weekly digest of Southern Baptist, Reformed, and broader theological news — curated for pastors and elders.">
 <link rel="alternate" type="application/rss+xml" title="State of the Church Today" href="https://churchnews.therolstons.com/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
-:root{color-scheme:light}*{box-sizing:border-box}
-body{margin:0;background:#f4f1ea;color:#1c1a17;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px 60px}
-header.masthead{text-align:center;padding:44px 20px 28px;border-bottom:3px double #b9322f;margin-bottom:8px}
-.kicker{font-family:"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:#b9322f;font-weight:700;margin-bottom:14px}
-h1.title{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:700;letter-spacing:-.5px}
-h1.title a{color:inherit;text-decoration:none}
-.tagline{font-style:italic;color:#5a5349;font-size:16px;margin:0 auto;max-width:480px}
-.issueline{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378;margin-top:18px;font-weight:600}
-.audio{margin:26px 0 0;padding:14px 16px;background:#fffdf8;border:1px solid #ddd6c8;border-radius:6px}
-.audio label{display:block;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8378;margin-bottom:8px}
-.audio audio{width:100%}
-.body blockquote{background:#fffdf8;border-left:4px solid #b9322f;padding:18px 22px;margin:30px 0 10px;font-size:17px;font-style:italic;color:#36322c;border-radius:2px}
-.body blockquote p{margin:0}
-.body hr{border:0;border-top:1px solid #ddd6c8;margin:30px 0 8px}
-.body h2{font-family:"Helvetica Neue",Arial,sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:22px 0 4px}
-.body h2+p em{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;font-style:normal}
-.body p{margin:0 0 22px}
-.body a{color:#b9322f;text-decoration:none;border-bottom:1px solid rgba(185,50,47,.3)}
-.body a:hover{border-bottom-color:#b9322f}
-.body .elder{background:#2c2a26;color:#ece7dc;border-radius:6px;padding:26px 28px;margin-top:34px}
-.body .elder h2{color:#e8b04b;margin-top:0}
-.body .elder h2+p em{color:#a39d8f}
-.body .elder blockquote{background:transparent;border:0;padding:0;margin:0;color:#ece7dc;font-size:16.5px}
-.body .elder strong,.body .elder em{color:#f3d99a}
-footer.foot{text-align:center;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;margin-top:36px;padding-top:22px;border-top:1px solid #ddd6c8;line-height:1.7}
-ul.issues{list-style:none;padding:0;margin:30px 0}
-ul.issues li{padding:16px 0;border-bottom:1px solid #ddd6c8}
-ul.issues .d{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378}
-ul.issues a{color:#1c1a17;text-decoration:none;font-weight:700;font-size:19px}
-ul.issues .lede{font-style:italic;color:#5a5349;margin-top:6px}
-ul.issues .links{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;margin-top:6px}
-ul.issues .links a{color:#b9322f;font-weight:400;font-size:12.5px}
-@media(max-width:480px){h1.title{font-size:34px}}
+:root{color-scheme:light dark;
+--bg:#f6f7f7;--ink:#171d1c;--muted:#5d6866;--rule:#d8dedc;--panel:#ffffff;--accent:#1d5a86;--accent-ink:#ffffff;
+--b1:#1d5a86;--b2:#2a7f6f;--b3:#6b4f9e;--b4:#b3552b;--b5:#5f6b73}
+@media(prefers-color-scheme:dark){:root{--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
+--b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae}}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:660px;margin:0 auto;padding:0 22px 72px;overflow-wrap:anywhere}
+header.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:26px 0 14px;border-bottom:1px solid var(--rule)}
+header.masthead .wordmark{font-weight:700;font-size:1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+header.masthead .wordmark:hover{color:var(--accent)}
+header.masthead nav{font-size:.85rem;display:flex;gap:18px}
+header.masthead nav a{color:var(--muted);text-decoration:none}
+header.masthead nav a:hover{color:var(--accent)}
+.issuehead{padding:44px 0 8px}
+.issuehead .date{font-size:.9rem;color:var(--muted);margin:0 0 10px}
+.issuehead .date b{color:var(--ink);font-weight:600}
+h1.title{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0}
+.body>blockquote:first-of-type{border:0;background:none;padding:0;margin:18px 0 6px;font-size:1.22rem;line-height:1.45;color:var(--ink)}
+.body>blockquote:first-of-type p{margin:0}
+.audio{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;align-items:center;margin:26px 0 6px;padding:16px 18px;background:var(--panel);border:1px solid var(--rule);border-radius:10px}
+.audio .play{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;grid-row:span 2}
+.audio .play svg{width:16px;height:16px;fill:currentColor;margin-left:2px}
+.audio .lbl{font-weight:600;font-size:.95rem;line-height:1.2}
+.audio .lbl span{color:var(--muted);font-weight:400;margin-left:6px}
+.audio audio{width:100%;min-width:0;height:36px;grid-column:2}
+.body hr{border:0;border-top:1px solid var(--rule);margin:36px 0 0}
+.body h2{position:relative;font-size:1.05rem;font-weight:700;margin:34px 0 4px;padding-top:14px}
+.body h2::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;border-radius:2px;background:var(--beat,var(--accent))}
+.body h2.b1{--beat:var(--b1)}.body h2.b2{--beat:var(--b2)}.body h2.b3{--beat:var(--b3)}.body h2.b4{--beat:var(--b4)}.body h2.b5{--beat:var(--b5)}
+.body h2+p em{font-style:normal;font-size:.9rem;color:var(--muted)}
+.body h2+p{margin-bottom:14px}
+.body p{margin:0 0 20px}
+.body a{color:var(--accent);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent);text-underline-offset:3px}
+.body a:hover{text-decoration-color:var(--accent)}
+.body .src{font-size:.86rem;line-height:2}
+.body .src a{color:var(--muted);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:1px 9px;margin-left:4px;white-space:nowrap}
+.body .src a:hover{color:var(--accent);border-color:var(--accent)}
+.body .elder{margin:40px 0 0;padding:22px 24px 6px;border-left:3px solid var(--accent);background:var(--panel);border-radius:0 10px 10px 0}
+.body .elder h2{margin-top:0;padding-top:0}
+.body .elder h2::before{display:none}
+.body .elder blockquote{margin:0 0 16px;padding:0;font-size:1.05rem;line-height:1.6}
+.body .elder blockquote p{margin:0 0 14px}
+.body>p:last-child em{font-style:normal;font-size:.86rem;color:var(--muted)}
+footer.foot{font-size:.86rem;color:var(--muted);margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);line-height:1.7}
+footer.foot a{color:var(--muted)}
+.index-intro{padding:44px 0 10px}
+.index-intro h1{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 10px}
+.index-intro p{margin:0;color:var(--muted);font-size:1.05rem;max-width:34em}
+ul.issues{list-style:none;padding:0;margin:26px 0 0}
+ul.issues li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 20px;padding:20px 0;border-top:1px solid var(--rule)}
+ul.issues .d{font-size:.86rem;color:var(--muted);line-height:1.5;padding-top:3px}
+ul.issues .d b{display:block;color:var(--ink);font-weight:600}
+ul.issues .lede{margin:0;line-height:1.5}
+ul.issues .lede a{color:var(--ink);text-decoration:none}
+ul.issues .lede a:hover{color:var(--accent)}
+ul.issues .links{grid-column:2;font-size:.86rem;margin-top:8px;display:flex;gap:14px}
+ul.issues .links a{color:var(--accent);text-decoration:none}
+ul.issues .links a:hover{text-decoration:underline}
+@media(max-width:540px){html{font-size:16px}h1.title,.index-intro h1{font-size:1.75rem}ul.issues li{grid-template-columns:1fr}ul.issues .lede,ul.issues .links{grid-column:1}header.masthead{flex-direction:column;gap:6px;align-items:flex-start}}
+@media(prefers-reduced-motion:no-preference){.body a,ul.issues a,header a{transition:color .15s}}
 </style></head><body><div class="wrap">
-<header class="masthead"><div class="kicker">Weekly Digest · SBC · Reformed · Theology</div>
-<h1 class="title"><a href="https://churchnews.therolstons.com/">State of the Church Today</a></h1><p class="tagline">A weekly digest of Southern Baptist, Reformed, and broader theological news — curated for pastors and elders.</p><div class="issueline">Issue 11 · Sunday, August 2, 2026</div></header>
-<div class="audio"><label>Listen to this issue</label><audio controls preload="none" src="https://churchnews.therolstons.com/audio/2026-08-02-issue-11.mp3"></audio></div><div class="body"><blockquote>
+<header class="masthead"><a class="wordmark" href="https://churchnews.therolstons.com/">State of the Church Today</a>
+<nav><a href="https://churchnews.therolstons.com/">All issues</a><a href="https://churchnews.therolstons.com/feed.xml">Podcast feed</a></nav></header>
+<div class="issuehead"><p class="date">Sunday, August 2, 2026</p><h1 class="title">Issue 11</h1></div><div class="body"><blockquote>
 <p>A decade-old reference letter from Wheaton&rsquo;s president resurfaced this week and put a hard question on every elder&rsquo;s desk: what do our commendations cost the people who trust them?</p>
-</blockquote>
+</blockquote><div class="audio"><div class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></div><div class="lbl">Listen to this issue<span>7 min</span></div><audio controls preload="none" src="https://churchnews.therolstons.com/audio/2026-08-02-issue-11.mp3"></audio></div>
 <hr />
-<h2>⛪ SBC &amp; Convention Watch</h2>
+<h2 class="b1">SBC &amp; Convention Watch</h2>
 <p><em>Annual meeting, entities, ERLC, resolutions, denominational politics.</em></p>
-<p><strong>Texas Baptists finish &ldquo;right-sizing&rdquo; — a $3.8 million warning shot.</strong> On July 27, during staff week, the Baptist General Convention of Texas announced the final round of its realignment: 26 full-time or contract positions eliminated (eight people departed outright; others retired, transitioned, or held vacant posts), 12 new ministry assignments, and cuts totaling an estimated $3.8 million — roughly 14% of the current budget — heading into 2027. Executive Director Julio Guarneri named the cause plainly: two decades of declining Cooperative Program giving plus shrinking spending power. The nation&rsquo;s largest state convention just modeled what many smaller ones will face; if your church&rsquo;s giving flows through a state convention, this is the shape of the conversation coming to your annual meeting. — <a href="https://baptiststandard.com/news/texas/texas-baptists-completes-realignment-right-sizing/">Baptist Standard</a> · <a href="https://www.baptistpress.com/resource-library/news/bgct-completes-right-sizing-realignment/">Baptist Press</a></p>
-<p><strong>Seven hundred leaders &ldquo;on the mountain&rdquo; at Ridgecrest.</strong> Lifeway&rsquo;s 33rd Black Church Leadership and Family Conference (July 20–24, Black Mountain, NC) drew roughly 700 pastors, leaders, and families around the theme &ldquo;Renewed&rdquo; from Colossians 3 — with breakouts ranging from creative preaching to AI and digital discipleship. A reminder that the SBC&rsquo;s healthiest work this summer happened far from the microphones: ordinary leaders being refreshed for ordinary ministry. — <a href="https://www.baptistpress.com/resource-library/news/creative-preaching-ai-tips-breakout-sessions-draw-700-to-black-church-conference/">Baptist Press</a> · <a href="https://news.lifeway.com/2026/07/28/families-come-to-the-mountain-seeking-renewal-at-black-church-leadership-and-family-conference/">Lifeway</a></p>
+<p><strong>Texas Baptists finish &ldquo;right-sizing&rdquo; — a $3.8 million warning shot.</strong> On July 27, during staff week, the Baptist General Convention of Texas announced the final round of its realignment: 26 full-time or contract positions eliminated (eight people departed outright; others retired, transitioned, or held vacant posts), 12 new ministry assignments, and cuts totaling an estimated $3.8 million — roughly 14% of the current budget — heading into 2027. Executive Director Julio Guarneri named the cause plainly: two decades of declining Cooperative Program giving plus shrinking spending power. The nation&rsquo;s largest state convention just modeled what many smaller ones will face; if your church&rsquo;s giving flows through a state convention, this is the shape of the conversation coming to your annual meeting. <span class="src"><a href="https://baptiststandard.com/news/texas/texas-baptists-completes-realignment-right-sizing/">Baptist Standard</a> <a href="https://www.baptistpress.com/resource-library/news/bgct-completes-right-sizing-realignment/">Baptist Press</a></span></p>
+<p><strong>Seven hundred leaders &ldquo;on the mountain&rdquo; at Ridgecrest.</strong> Lifeway&rsquo;s 33rd Black Church Leadership and Family Conference (July 20–24, Black Mountain, NC) drew roughly 700 pastors, leaders, and families around the theme &ldquo;Renewed&rdquo; from Colossians 3 — with breakouts ranging from creative preaching to AI and digital discipleship. A reminder that the SBC&rsquo;s healthiest work this summer happened far from the microphones: ordinary leaders being refreshed for ordinary ministry. <span class="src"><a href="https://www.baptistpress.com/resource-library/news/creative-preaching-ai-tips-breakout-sessions-draw-700-to-black-church-conference/">Baptist Press</a> <a href="https://news.lifeway.com/2026/07/28/families-come-to-the-mountain-seeking-renewal-at-black-church-leadership-and-family-conference/">Lifeway</a></span></p>
 <hr />
-<h2>📖 Reformed &amp; Confessional</h2>
+<h2 class="b2">Reformed &amp; Confessional</h2>
 <p><em>Reformed Baptist, Presbyterian (PCA/OPC), confessional churches and networks.</em></p>
-<p><strong>Grimké&rsquo;s first &ldquo;Churchman&rdquo; conference is in the books.</strong> The inaugural men&rsquo;s conference wrapped July 27–29 at Remnant Midtown in Richmond, with preaching and teaching from Bryan Laughlin, Doug Logan, Doug Ponder, Joe Holland, and Mark Becton. No recap coverage has posted yet — watch Grimké&rsquo;s channels for recordings — but the bet the seminary made is worth naming: that men will travel for a conference about being a faithful church member rather than a platform leader. If attendance and fruit bear it out, expect imitators. — <a href="https://grimkeseminary.org/churchman/">Grimké Seminary</a></p>
-<p><strong>What confessional Presbyterians are reading right now.</strong> The Heidelblog&rsquo;s most-read posts for late July are a useful window into where confessional energy is: R. Scott Clark&rsquo;s series on why the CRC&rsquo;s conservative turn is not a rerun of the PCUSA&rsquo;s decline (&ldquo;A Word to the Reconquistadores&rdquo;), and Shane Lems&rsquo;s review of Alan Noble&rsquo;s <em>To Live Well: Practical Wisdom for Moving Through Chaotic Times</em>. Clark&rsquo;s series in particular is worth an elder&rsquo;s attention — a live case study in whether a denomination can actually walk back theological drift. — <a href="https://heidelblog.net/2026/07/top-five-posts-for-the-week-of-july-20-26-2026/">Heidelblog</a></p>
+<p><strong>Grimké&rsquo;s first &ldquo;Churchman&rdquo; conference is in the books.</strong> The inaugural men&rsquo;s conference wrapped July 27–29 at Remnant Midtown in Richmond, with preaching and teaching from Bryan Laughlin, Doug Logan, Doug Ponder, Joe Holland, and Mark Becton. No recap coverage has posted yet — watch Grimké&rsquo;s channels for recordings — but the bet the seminary made is worth naming: that men will travel for a conference about being a faithful church member rather than a platform leader. If attendance and fruit bear it out, expect imitators. <span class="src"><a href="https://grimkeseminary.org/churchman/">Grimké Seminary</a></span></p>
+<p><strong>What confessional Presbyterians are reading right now.</strong> The Heidelblog&rsquo;s most-read posts for late July are a useful window into where confessional energy is: R. Scott Clark&rsquo;s series on why the CRC&rsquo;s conservative turn is not a rerun of the PCUSA&rsquo;s decline (&ldquo;A Word to the Reconquistadores&rdquo;), and Shane Lems&rsquo;s review of Alan Noble&rsquo;s <em>To Live Well: Practical Wisdom for Moving Through Chaotic Times</em>. Clark&rsquo;s series in particular is worth an elder&rsquo;s attention — a live case study in whether a denomination can actually walk back theological drift. <span class="src"><a href="https://heidelblog.net/2026/07/top-five-posts-for-the-week-of-july-20-26-2026/">Heidelblog</a></span></p>
 <hr />
-<h2>🕊️ Theology &amp; Doctrine</h2>
+<h2 class="b3">Theology &amp; Doctrine</h2>
 <p><em>Major debates, books, controversies, council and committee statements.</em></p>
-<p><strong>The AI-and-the-soul debate sharpens into manifestos and degree programs.</strong> Two markers of how fast this conversation is moving: philosopher Douglas Groothuis&rsquo;s manifesto &ldquo;We Refuse It,&rdquo; circulating widely via the Heidelblog, commits its signers to refusing generative AI in their writing — &ldquo;we will not lose our literary souls&rdquo; — and to banning it in student papers. Meanwhile, Shaw University Divinity School announced the first doctoral degree in &ldquo;AI and Moral Agency,&rdquo; with a first cohort beginning in January. The church is no longer asking <em>whether</em> to respond to AI but is now splitting between refusal and engagement as postures — and your congregation&rsquo;s teachers, students, and knowledge workers are already choosing sides without a shepherd&rsquo;s help. — <a href="https://heidelblog.net/2026/07/groothuis-we-will-not-forfeit-our-souls-to-ai/">Heidelblog</a> · <a href="https://faithandleadership.com/news-ideas/tuesdays-news-ideas-7282026">Faith &amp; Leadership</a></p>
+<p><strong>The AI-and-the-soul debate sharpens into manifestos and degree programs.</strong> Two markers of how fast this conversation is moving: philosopher Douglas Groothuis&rsquo;s manifesto &ldquo;We Refuse It,&rdquo; circulating widely via the Heidelblog, commits its signers to refusing generative AI in their writing — &ldquo;we will not lose our literary souls&rdquo; — and to banning it in student papers. Meanwhile, Shaw University Divinity School announced the first doctoral degree in &ldquo;AI and Moral Agency,&rdquo; with a first cohort beginning in January. The church is no longer asking <em>whether</em> to respond to AI but is now splitting between refusal and engagement as postures — and your congregation&rsquo;s teachers, students, and knowledge workers are already choosing sides without a shepherd&rsquo;s help. <span class="src"><a href="https://heidelblog.net/2026/07/groothuis-we-will-not-forfeit-our-souls-to-ai/">Heidelblog</a> <a href="https://faithandleadership.com/news-ideas/tuesdays-news-ideas-7282026">Faith &amp; Leadership</a></span></p>
 <hr />
-<h2>🏛️ Culture &amp; Church-State</h2>
+<h2 class="b4">Culture &amp; Church-State</h2>
 <p><em>Religious liberty, ethics, politics affecting the church, cultural engagement.</em></p>
-<p><strong>The Johnson Amendment is still the law heading into November — despite what your members may have heard.</strong> With the midterms three months out, legal analysts are reminding churches that the Johnson Amendment still bars tax-exempt congregations from endorsing or opposing candidates. The IRS&rsquo;s headline-making 2025 court filing — which suggested pulpit endorsements through &ldquo;customary channels&rdquo; wouldn&rsquo;t trigger enforcement — died on March 31 when a federal judge dismissed the case without approving the settlement, and the promised IRS clarifying guidance has not yet arrived. Practical counsel for your leadership: the enforcement climate is lenient, but the statute is unchanged, and a church that acts on a rumor rather than the law is gambling with its exemption. — <a href="https://natlawreview.com/article/religious-organizations-and-political-activity-2026-election-year-guide">National Law Review</a> · <a href="https://www.napalegalinstitute.org/post/what-the-irs-really-said-in-a-recent-case-about-the-johnson-amendment">NAPA Legal</a></p>
-<p><strong>Released Texas pastors describe detention; churches keep wrestling with the stranger.</strong> Christianity Today reports that pastors Nepthali Zozaya Saucedo and Cinthia Sarai Cardona Otero of Edinburg, Texas, led worship with their congregation after release from immigration detention, saying agents mocked them and threatened family separation — while a companion CT piece describes pastors nationwide wrestling with how to care for strangers without encouraging illegal entry. Whatever your congregation&rsquo;s politics, the pastoral question has arrived in the pews: what does your church owe the immigrant family two rows back? — <a href="https://www.christianitytoday.com/2026/07/released-pastors-say-immigration-agents-mocked-them-threatened-family-separation/">Christianity Today</a></p>
+<p><strong>The Johnson Amendment is still the law heading into November — despite what your members may have heard.</strong> With the midterms three months out, legal analysts are reminding churches that the Johnson Amendment still bars tax-exempt congregations from endorsing or opposing candidates. The IRS&rsquo;s headline-making 2025 court filing — which suggested pulpit endorsements through &ldquo;customary channels&rdquo; wouldn&rsquo;t trigger enforcement — died on March 31 when a federal judge dismissed the case without approving the settlement, and the promised IRS clarifying guidance has not yet arrived. Practical counsel for your leadership: the enforcement climate is lenient, but the statute is unchanged, and a church that acts on a rumor rather than the law is gambling with its exemption. <span class="src"><a href="https://natlawreview.com/article/religious-organizations-and-political-activity-2026-election-year-guide">National Law Review</a> <a href="https://www.napalegalinstitute.org/post/what-the-irs-really-said-in-a-recent-case-about-the-johnson-amendment">NAPA Legal</a></span></p>
+<p><strong>Released Texas pastors describe detention; churches keep wrestling with the stranger.</strong> Christianity Today reports that pastors Nepthali Zozaya Saucedo and Cinthia Sarai Cardona Otero of Edinburg, Texas, led worship with their congregation after release from immigration detention, saying agents mocked them and threatened family separation — while a companion CT piece describes pastors nationwide wrestling with how to care for strangers without encouraging illegal entry. Whatever your congregation&rsquo;s politics, the pastoral question has arrived in the pews: what does your church owe the immigrant family two rows back? <span class="src"><a href="https://www.christianitytoday.com/2026/07/released-pastors-say-immigration-agents-mocked-them-threatened-family-separation/">Christianity Today</a></span></p>
 <hr />
-<h2>🔥 Also Worth Noting</h2>
+<h2 class="b5">Also Worth Noting</h2>
 <p><em>Notable controversy and media shake-ups — reported with discernment, not appetite.</em></p>
-<p><strong>A reference letter with a long shadow at Wheaton.</strong> The Roys Report published documents showing that Paul S. Jones — the former Tenth Presbyterian Church music minister who left the U.S. in 2014 after former students accused him of sadistic abuse — listed Wheaton College President Philip Ryken as a reference in 2015 and got the job he sought at a university in the Bahamas, where he has taught for a decade with access to young choir members. Ryken had reportedly learned of additional victims by then. Reported here not for the scandal but for the lesson: a commendation from a trusted Christian leader functions as a transfer of trust, and the people downstream of it cannot see what the writer chose not to say. — <a href="https://roysreport.com/exclusive-accused-abuser-listed-wheaton-college-president-philip-ryken-as-a-reference-and-got-job-at-university-of-the-bahamas/">The Roys Report</a></p>
+<p><strong>A reference letter with a long shadow at Wheaton.</strong> The Roys Report published documents showing that Paul S. Jones — the former Tenth Presbyterian Church music minister who left the U.S. in 2014 after former students accused him of sadistic abuse — listed Wheaton College President Philip Ryken as a reference in 2015 and got the job he sought at a university in the Bahamas, where he has taught for a decade with access to young choir members. Ryken had reportedly learned of additional victims by then. Reported here not for the scandal but for the lesson: a commendation from a trusted Christian leader functions as a transfer of trust, and the people downstream of it cannot see what the writer chose not to say. <span class="src"><a href="https://roysreport.com/exclusive-accused-abuser-listed-wheaton-college-president-philip-ryken-as-a-reference-and-got-job-at-university-of-the-bahamas/">The Roys Report</a></span></p>
 <hr />
-<div class="elder"><h2>🧭 For the Elder&rsquo;s Desk</h2>
+<div class="elder"><h2>For the Elder&rsquo;s Desk</h2>
 <p><em>A pastoral takeaway for your leadership team this week.</em></p>
 <blockquote>
 <p>Paul asked the Corinthians, half in irony, &ldquo;Do we need, as some do, letters of recommendation to you, or from you?&rdquo; (2 Cor. 3:1). The irony works only because such letters mattered — churches trusted them, and workers moved on their strength. This week&rsquo;s Wheaton story is about what happens when that currency is debased: a reference given (or simply not refused) to a man credibly accused of abuse became the bridge to a decade of access to vulnerable young people an ocean away. Every elder board is in the reference business, whether it knows it or not — for departing members, former staff, ministry candidates, the leader who &ldquo;resigned to pursue other opportunities.&rdquo; The temptation is always to write the kind letter, the incomplete letter, the letter that avoids a phone call. But a commendation is not a courtesy; it is testimony, and the ninth commandment governs it. A question for your leadership: <em>Is there anyone we have quietly passed along to another flock with a letter — or a silence — that the receiving church would feel deceived by if they knew what we knew?</em></p>
 </blockquote>
 </div><hr />
 <p><em>State of the Church Today · Compiled August 2, 2026. Reply with corrections or tips. Forward to a fellow elder.</em></p></div>
-<footer class="foot">State of the Church Today · <a href="https://churchnews.therolstons.com/feed.xml" style="color:#8a8378">Podcast feed</a><br>Reply with corrections or tips. Forward to a fellow elder.</footer>
+<footer class="foot">State of the Church Today publishes every Sunday morning. <a href="https://churchnews.therolstons.com/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.</footer>
 </div></body></html>

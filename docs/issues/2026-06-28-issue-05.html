@@ -1,78 +1,111 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>State of the Church Today — Issue 05</title>
+<meta name="description" content="A weekly digest of Southern Baptist, Reformed, and broader theological news — curated for pastors and elders.">
 <link rel="alternate" type="application/rss+xml" title="State of the Church Today" href="https://churchnews.therolstons.com/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
-:root{color-scheme:light}*{box-sizing:border-box}
-body{margin:0;background:#f4f1ea;color:#1c1a17;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px 60px}
-header.masthead{text-align:center;padding:44px 20px 28px;border-bottom:3px double #b9322f;margin-bottom:8px}
-.kicker{font-family:"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:#b9322f;font-weight:700;margin-bottom:14px}
-h1.title{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:700;letter-spacing:-.5px}
-h1.title a{color:inherit;text-decoration:none}
-.tagline{font-style:italic;color:#5a5349;font-size:16px;margin:0 auto;max-width:480px}
-.issueline{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378;margin-top:18px;font-weight:600}
-.audio{margin:26px 0 0;padding:14px 16px;background:#fffdf8;border:1px solid #ddd6c8;border-radius:6px}
-.audio label{display:block;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8378;margin-bottom:8px}
-.audio audio{width:100%}
-.body blockquote{background:#fffdf8;border-left:4px solid #b9322f;padding:18px 22px;margin:30px 0 10px;font-size:17px;font-style:italic;color:#36322c;border-radius:2px}
-.body blockquote p{margin:0}
-.body hr{border:0;border-top:1px solid #ddd6c8;margin:30px 0 8px}
-.body h2{font-family:"Helvetica Neue",Arial,sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:22px 0 4px}
-.body h2+p em{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;font-style:normal}
-.body p{margin:0 0 22px}
-.body a{color:#b9322f;text-decoration:none;border-bottom:1px solid rgba(185,50,47,.3)}
-.body a:hover{border-bottom-color:#b9322f}
-.body .elder{background:#2c2a26;color:#ece7dc;border-radius:6px;padding:26px 28px;margin-top:34px}
-.body .elder h2{color:#e8b04b;margin-top:0}
-.body .elder h2+p em{color:#a39d8f}
-.body .elder blockquote{background:transparent;border:0;padding:0;margin:0;color:#ece7dc;font-size:16.5px}
-.body .elder strong,.body .elder em{color:#f3d99a}
-footer.foot{text-align:center;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;margin-top:36px;padding-top:22px;border-top:1px solid #ddd6c8;line-height:1.7}
-ul.issues{list-style:none;padding:0;margin:30px 0}
-ul.issues li{padding:16px 0;border-bottom:1px solid #ddd6c8}
-ul.issues .d{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378}
-ul.issues a{color:#1c1a17;text-decoration:none;font-weight:700;font-size:19px}
-ul.issues .lede{font-style:italic;color:#5a5349;margin-top:6px}
-ul.issues .links{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;margin-top:6px}
-ul.issues .links a{color:#b9322f;font-weight:400;font-size:12.5px}
-@media(max-width:480px){h1.title{font-size:34px}}
+:root{color-scheme:light dark;
+--bg:#f6f7f7;--ink:#171d1c;--muted:#5d6866;--rule:#d8dedc;--panel:#ffffff;--accent:#1d5a86;--accent-ink:#ffffff;
+--b1:#1d5a86;--b2:#2a7f6f;--b3:#6b4f9e;--b4:#b3552b;--b5:#5f6b73}
+@media(prefers-color-scheme:dark){:root{--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
+--b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae}}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:660px;margin:0 auto;padding:0 22px 72px;overflow-wrap:anywhere}
+header.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:26px 0 14px;border-bottom:1px solid var(--rule)}
+header.masthead .wordmark{font-weight:700;font-size:1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+header.masthead .wordmark:hover{color:var(--accent)}
+header.masthead nav{font-size:.85rem;display:flex;gap:18px}
+header.masthead nav a{color:var(--muted);text-decoration:none}
+header.masthead nav a:hover{color:var(--accent)}
+.issuehead{padding:44px 0 8px}
+.issuehead .date{font-size:.9rem;color:var(--muted);margin:0 0 10px}
+.issuehead .date b{color:var(--ink);font-weight:600}
+h1.title{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0}
+.body>blockquote:first-of-type{border:0;background:none;padding:0;margin:18px 0 6px;font-size:1.22rem;line-height:1.45;color:var(--ink)}
+.body>blockquote:first-of-type p{margin:0}
+.audio{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;align-items:center;margin:26px 0 6px;padding:16px 18px;background:var(--panel);border:1px solid var(--rule);border-radius:10px}
+.audio .play{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;grid-row:span 2}
+.audio .play svg{width:16px;height:16px;fill:currentColor;margin-left:2px}
+.audio .lbl{font-weight:600;font-size:.95rem;line-height:1.2}
+.audio .lbl span{color:var(--muted);font-weight:400;margin-left:6px}
+.audio audio{width:100%;min-width:0;height:36px;grid-column:2}
+.body hr{border:0;border-top:1px solid var(--rule);margin:36px 0 0}
+.body h2{position:relative;font-size:1.05rem;font-weight:700;margin:34px 0 4px;padding-top:14px}
+.body h2::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;border-radius:2px;background:var(--beat,var(--accent))}
+.body h2.b1{--beat:var(--b1)}.body h2.b2{--beat:var(--b2)}.body h2.b3{--beat:var(--b3)}.body h2.b4{--beat:var(--b4)}.body h2.b5{--beat:var(--b5)}
+.body h2+p em{font-style:normal;font-size:.9rem;color:var(--muted)}
+.body h2+p{margin-bottom:14px}
+.body p{margin:0 0 20px}
+.body a{color:var(--accent);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent);text-underline-offset:3px}
+.body a:hover{text-decoration-color:var(--accent)}
+.body .src{font-size:.86rem;line-height:2}
+.body .src a{color:var(--muted);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:1px 9px;margin-left:4px;white-space:nowrap}
+.body .src a:hover{color:var(--accent);border-color:var(--accent)}
+.body .elder{margin:40px 0 0;padding:22px 24px 6px;border-left:3px solid var(--accent);background:var(--panel);border-radius:0 10px 10px 0}
+.body .elder h2{margin-top:0;padding-top:0}
+.body .elder h2::before{display:none}
+.body .elder blockquote{margin:0 0 16px;padding:0;font-size:1.05rem;line-height:1.6}
+.body .elder blockquote p{margin:0 0 14px}
+.body>p:last-child em{font-style:normal;font-size:.86rem;color:var(--muted)}
+footer.foot{font-size:.86rem;color:var(--muted);margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);line-height:1.7}
+footer.foot a{color:var(--muted)}
+.index-intro{padding:44px 0 10px}
+.index-intro h1{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 10px}
+.index-intro p{margin:0;color:var(--muted);font-size:1.05rem;max-width:34em}
+ul.issues{list-style:none;padding:0;margin:26px 0 0}
+ul.issues li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 20px;padding:20px 0;border-top:1px solid var(--rule)}
+ul.issues .d{font-size:.86rem;color:var(--muted);line-height:1.5;padding-top:3px}
+ul.issues .d b{display:block;color:var(--ink);font-weight:600}
+ul.issues .lede{margin:0;line-height:1.5}
+ul.issues .lede a{color:var(--ink);text-decoration:none}
+ul.issues .lede a:hover{color:var(--accent)}
+ul.issues .links{grid-column:2;font-size:.86rem;margin-top:8px;display:flex;gap:14px}
+ul.issues .links a{color:var(--accent);text-decoration:none}
+ul.issues .links a:hover{text-decoration:underline}
+@media(max-width:540px){html{font-size:16px}h1.title,.index-intro h1{font-size:1.75rem}ul.issues li{grid-template-columns:1fr}ul.issues .lede,ul.issues .links{grid-column:1}header.masthead{flex-direction:column;gap:6px;align-items:flex-start}}
+@media(prefers-reduced-motion:no-preference){.body a,ul.issues a,header a{transition:color .15s}}
 </style></head><body><div class="wrap">
-<header class="masthead"><div class="kicker">Weekly Digest · SBC · Reformed · Theology</div>
-<h1 class="title"><a href="https://churchnews.therolstons.com/">State of the Church Today</a></h1><p class="tagline">A weekly digest of Southern Baptist, Reformed, and broader theological news — curated for pastors and elders.</p><div class="issueline">Issue 05 · Sunday, June 28, 2026</div></header>
-<div class="audio"><label>Listen to this issue</label><audio controls preload="none" src="https://churchnews.therolstons.com/audio/2026-06-28-issue-05.mp3"></audio></div><div class="body"><blockquote>
+<header class="masthead"><a class="wordmark" href="https://churchnews.therolstons.com/">State of the Church Today</a>
+<nav><a href="https://churchnews.therolstons.com/">All issues</a><a href="https://churchnews.therolstons.com/feed.xml">Podcast feed</a></nav></header>
+<div class="issuehead"><p class="date">Sunday, June 28, 2026</p><h1 class="title">Issue 05</h1></div><div class="body"><blockquote>
 <p>The PCA&rsquo;s 53rd General Assembly adjourned in Louisville: messengers decisively turned back an overture to ordain women as deacons and advanced — but pointedly did not finalize — a committee report rejecting the harder forms of Christian nationalism, while the Supreme Court handed down a narrow but consequential religious-liberty loss in <em>Landor v. Louisiana</em>.</p>
-</blockquote>
+</blockquote><div class="audio"><div class="play"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg></div><div class="lbl">Listen to this issue<span>8 min</span></div><audio controls preload="none" src="https://churchnews.therolstons.com/audio/2026-06-28-issue-05.mp3"></audio></div>
 <hr />
-<h2>⛪ SBC &amp; Convention Watch</h2>
+<h2 class="b1">SBC &amp; Convention Watch</h2>
 <p><em>Annual meeting, entities, ERLC, resolutions, denominational politics.</em></p>
-<p><strong>The bill comes due on the IMB reallocation.</strong> With Orlando in the rearview mirror, attention turns to the arithmetic: the new fiscal year beginning this fall implements the messenger-approved shift sending 51% of national Cooperative Program receipts to the International Mission Board — the conclusion of a 16-year process that began with the 2010 Great Commission Resurgence. In his report to messengers, IMB president Paul Chitwood named the sobering backdrop: inflation and CP decline have eroded the buying power of the board&rsquo;s CP dollars by roughly 40%. The reallocation is a genuine missions commitment, but every redirected dollar is one the seminaries, NAMB, and ERLC no longer receive — worth watching as entity budgets feel the squeeze. — <a href="https://www.baptistpress.com/resource-library/news/messengers-approve-51-percent-of-national-cooperative-program-dollars-for-imb/">Baptist Press</a> · <a href="https://www.brnow.org/news/chitwood-shares-thanks-celebration-challenge-with-sbc-messengers/">Biblical Recorder</a></p>
-<p><strong>Post-Orlando reflections begin.</strong> The analyses of the 2026 meeting are landing. Willy Rice (Calvary Church, Clearwater) was elected president with 57% over Josh Powell, and Al Mohler&rsquo;s &ldquo;Truth &amp; Unity Amendment&rdquo; — barring cooperation with churches that affirm a woman in the office or function of pastor — cleared the first of two required two-thirds votes, meaning a second affirming vote in 2027 will decide it. Historian Nathan Finn&rsquo;s post-convention essay is a measured read on what the gathering revealed about the convention&rsquo;s mood and direction. — <a href="https://nathanfinn.substack.com/p/reflections-on-the-2026-southern">Nathan Finn</a> · <a href="https://www.baptistmessenger.com/2026-sbc-annual-meeting-highlights-missions-truth-unity/">Baptist Messenger</a></p>
+<p><strong>The bill comes due on the IMB reallocation.</strong> With Orlando in the rearview mirror, attention turns to the arithmetic: the new fiscal year beginning this fall implements the messenger-approved shift sending 51% of national Cooperative Program receipts to the International Mission Board — the conclusion of a 16-year process that began with the 2010 Great Commission Resurgence. In his report to messengers, IMB president Paul Chitwood named the sobering backdrop: inflation and CP decline have eroded the buying power of the board&rsquo;s CP dollars by roughly 40%. The reallocation is a genuine missions commitment, but every redirected dollar is one the seminaries, NAMB, and ERLC no longer receive — worth watching as entity budgets feel the squeeze. <span class="src"><a href="https://www.baptistpress.com/resource-library/news/messengers-approve-51-percent-of-national-cooperative-program-dollars-for-imb/">Baptist Press</a> <a href="https://www.brnow.org/news/chitwood-shares-thanks-celebration-challenge-with-sbc-messengers/">Biblical Recorder</a></span></p>
+<p><strong>Post-Orlando reflections begin.</strong> The analyses of the 2026 meeting are landing. Willy Rice (Calvary Church, Clearwater) was elected president with 57% over Josh Powell, and Al Mohler&rsquo;s &ldquo;Truth &amp; Unity Amendment&rdquo; — barring cooperation with churches that affirm a woman in the office or function of pastor — cleared the first of two required two-thirds votes, meaning a second affirming vote in 2027 will decide it. Historian Nathan Finn&rsquo;s post-convention essay is a measured read on what the gathering revealed about the convention&rsquo;s mood and direction. <span class="src"><a href="https://nathanfinn.substack.com/p/reflections-on-the-2026-southern">Nathan Finn</a> <a href="https://www.baptistmessenger.com/2026-sbc-annual-meeting-highlights-missions-truth-unity/">Baptist Messenger</a></span></p>
 <hr />
-<h2>📖 Reformed &amp; Confessional</h2>
+<h2 class="b2">Reformed &amp; Confessional</h2>
 <p><em>Reformed Baptist, Presbyterian (PCA/OPC), confessional churches and networks.</em></p>
-<p><strong>The PCA decisively rejects women deacons.</strong> When Overture 37 — Pacific Presbytery&rsquo;s bid to strike &ldquo;men&rdquo; from the diaconal criteria and open the office to qualified women at a session&rsquo;s discretion — reached the floor June 25, the Assembly answered it in the negative by an overwhelming voice vote, with the Overtures Committee having already recommended rejection on the ground that &ldquo;our constitutional documents are a sufficient expression of the biblical warrant, nature, qualifications, and duties of deacons.&rdquo; Related overtures fell with it. For confessional Baptists watching a sister communion, it is a clear signal of where the PCA&rsquo;s center of gravity sits on office and order. — <a href="https://www.christianpost.com/news/pca-votes-on-female-deacons-report-on-christian-nationalism.html">Christian Post</a> · <a href="https://byfaithonline.com/general-assembly-update-for-thursday-june-25/">byFaith</a></p>
-<p><strong>A new stated clerk, and the Worship directory waits another year.</strong> The Assembly unanimously elected the Rev. Fred Greco as the PCA&rsquo;s sixth stated clerk on June 23, and the ad-interim committee revising the Directory for Public Worship elected to bring only a brief report this year, deferring a full proposal for constitutional change to the 54th General Assembly in 2027. Two reminders that confessional churches move deliberately — the machinery of revision is slow by design. — <a href="https://byfaithonline.com/an-update-from-the-directory-for-worship-study-committee/">byFaith</a> · <a href="https://ministrywatch.com/at-pca-general-assembly-voters-address-gender-sexuality-and-sexual-abuse/">MinistryWatch</a></p>
+<p><strong>The PCA decisively rejects women deacons.</strong> When Overture 37 — Pacific Presbytery&rsquo;s bid to strike &ldquo;men&rdquo; from the diaconal criteria and open the office to qualified women at a session&rsquo;s discretion — reached the floor June 25, the Assembly answered it in the negative by an overwhelming voice vote, with the Overtures Committee having already recommended rejection on the ground that &ldquo;our constitutional documents are a sufficient expression of the biblical warrant, nature, qualifications, and duties of deacons.&rdquo; Related overtures fell with it. For confessional Baptists watching a sister communion, it is a clear signal of where the PCA&rsquo;s center of gravity sits on office and order. <span class="src"><a href="https://www.christianpost.com/news/pca-votes-on-female-deacons-report-on-christian-nationalism.html">Christian Post</a> <a href="https://byfaithonline.com/general-assembly-update-for-thursday-june-25/">byFaith</a></span></p>
+<p><strong>A new stated clerk, and the Worship directory waits another year.</strong> The Assembly unanimously elected the Rev. Fred Greco as the PCA&rsquo;s sixth stated clerk on June 23, and the ad-interim committee revising the Directory for Public Worship elected to bring only a brief report this year, deferring a full proposal for constitutional change to the 54th General Assembly in 2027. Two reminders that confessional churches move deliberately — the machinery of revision is slow by design. <span class="src"><a href="https://byfaithonline.com/an-update-from-the-directory-for-worship-study-committee/">byFaith</a> <a href="https://ministrywatch.com/at-pca-general-assembly-voters-address-gender-sexuality-and-sexual-abuse/">MinistryWatch</a></span></p>
 <hr />
-<h2>🕊️ Theology &amp; Doctrine</h2>
+<h2 class="b3">Theology &amp; Doctrine</h2>
 <p><em>Major debates, books, controversies, council and committee statements.</em></p>
-<p><strong>The PCA&rsquo;s Christian Nationalism report — what it actually says.</strong> Advanced to the wider church on June 24 as a <em>partial</em> report (the full version is due to GA 2027), the Ad-Interim Committee&rsquo;s document, chaired by David Strain, affirms the distinct God-given spheres of church and state — &ldquo;the church is not called to direct the affairs of the state, nor the state the affairs of the church&rdquo; — and, working from the Augustinian grammar of &ldquo;ordered loves,&rdquo; denies that any Christian nationalism trafficking in ethnic partiality, racial superiority, or a conflation of national identity with the kingdom of God can stand with Scripture, the Westminster Standards, or the Gospel. Strain told the floor the committee was &ldquo;unanimous… in rejecting speech that is crass, unwholesome, unclean, debasing, snide and contemptuous,&rdquo; naming &ldquo;the unqualified wickedness of racism and kinism, antisemitism and all forms of racial prejudice.&rdquo; Even as a non-binding report, it is the most substantial confessional-Reformed statement on the question to date — and worth putting in front of your officers. — <a href="https://www.christianpost.com/news/pca-votes-on-female-deacons-report-on-christian-nationalism.html">Christian Post</a> · <a href="https://wng.org/sift/pca-advances-report-denying-christian-nationalism-1782417754">WORLD</a> · <a href="https://americanreformer.org/2026/06/the-pcas-unfinished-business-on-christian-nationalism/">American Reformer</a></p>
-<p><strong>The theonomy question rides alongside it.</strong> The nationalism debate travels with a renewed argument over theonomy and Christian Reconstruction, and confessional Baptists have a dog in the fight: 9Marks has been publishing covenant-theology responses arguing that the law-gospel error of folding too much of the Old Covenant into the New is best answered not merely by political prudence but by Baptist (and broadly Reformed) covenant theology. Useful framing if the conversation reaches your own context. — <a href="https://www.9marks.org/article/baptist-covenant-theology-a-pastors-best-defense-against-theonomy/">9Marks</a></p>
+<p><strong>The PCA&rsquo;s Christian Nationalism report — what it actually says.</strong> Advanced to the wider church on June 24 as a <em>partial</em> report (the full version is due to GA 2027), the Ad-Interim Committee&rsquo;s document, chaired by David Strain, affirms the distinct God-given spheres of church and state — &ldquo;the church is not called to direct the affairs of the state, nor the state the affairs of the church&rdquo; — and, working from the Augustinian grammar of &ldquo;ordered loves,&rdquo; denies that any Christian nationalism trafficking in ethnic partiality, racial superiority, or a conflation of national identity with the kingdom of God can stand with Scripture, the Westminster Standards, or the Gospel. Strain told the floor the committee was &ldquo;unanimous… in rejecting speech that is crass, unwholesome, unclean, debasing, snide and contemptuous,&rdquo; naming &ldquo;the unqualified wickedness of racism and kinism, antisemitism and all forms of racial prejudice.&rdquo; Even as a non-binding report, it is the most substantial confessional-Reformed statement on the question to date — and worth putting in front of your officers. <span class="src"><a href="https://www.christianpost.com/news/pca-votes-on-female-deacons-report-on-christian-nationalism.html">Christian Post</a> <a href="https://wng.org/sift/pca-advances-report-denying-christian-nationalism-1782417754">WORLD</a> <a href="https://americanreformer.org/2026/06/the-pcas-unfinished-business-on-christian-nationalism/">American Reformer</a></span></p>
+<p><strong>The theonomy question rides alongside it.</strong> The nationalism debate travels with a renewed argument over theonomy and Christian Reconstruction, and confessional Baptists have a dog in the fight: 9Marks has been publishing covenant-theology responses arguing that the law-gospel error of folding too much of the Old Covenant into the New is best answered not merely by political prudence but by Baptist (and broadly Reformed) covenant theology. Useful framing if the conversation reaches your own context. <span class="src"><a href="https://www.9marks.org/article/baptist-covenant-theology-a-pastors-best-defense-against-theonomy/">9Marks</a></span></p>
 <hr />
-<h2>🏛️ Culture &amp; Church-State</h2>
+<h2 class="b4">Culture &amp; Church-State</h2>
 <p><em>Religious liberty, ethics, politics affecting the church, cultural engagement.</em></p>
-<p><strong>The Supreme Court narrows the remedy for religious-liberty violations.</strong> In <em>Landor v. Louisiana Department of Corrections and Public Safety</em>, decided 6–3 on June 23 in an opinion by Justice Gorsuch, the Court held that individual state officials cannot be sued for money damages in their personal capacities under the Religious Land Use and Institutionalized Persons Act (RLUIPA), a spending-clause statute. The plaintiff, a Rastafarian whose knee-length dreadlocks were forcibly shaved by prison staff who threw his court order in the trash, prevailed on the wrong of the act but lost the means to recover for it. The ruling concerns prisoners, but the logic — that spending-clause conditions don&rsquo;t impose personal liability absent knowing consent — shapes how far RLUIPA&rsquo;s teeth reach for every religious claimant who depends on it. — <a href="https://www.scotusblog.com/cases/landor-v-louisiana-department-of-corrections-and-public-safety/">SCOTUSblog</a> · <a href="https://www.baptistpress.com/resource-library/news/conservative-justices-block-suit-against-prison-guards-who-breached-religious-freedom/">Baptist Press</a> · <a href="https://religionnews.com/2026/06/23/a-rastafarians-supreme-court-loss-shows-religious-freedom-depends-on-who-you-are/">Religion News</a></p>
+<p><strong>The Supreme Court narrows the remedy for religious-liberty violations.</strong> In <em>Landor v. Louisiana Department of Corrections and Public Safety</em>, decided 6–3 on June 23 in an opinion by Justice Gorsuch, the Court held that individual state officials cannot be sued for money damages in their personal capacities under the Religious Land Use and Institutionalized Persons Act (RLUIPA), a spending-clause statute. The plaintiff, a Rastafarian whose knee-length dreadlocks were forcibly shaved by prison staff who threw his court order in the trash, prevailed on the wrong of the act but lost the means to recover for it. The ruling concerns prisoners, but the logic — that spending-clause conditions don&rsquo;t impose personal liability absent knowing consent — shapes how far RLUIPA&rsquo;s teeth reach for every religious claimant who depends on it. <span class="src"><a href="https://www.scotusblog.com/cases/landor-v-louisiana-department-of-corrections-and-public-safety/">SCOTUSblog</a> <a href="https://www.baptistpress.com/resource-library/news/conservative-justices-block-suit-against-prison-guards-who-breached-religious-freedom/">Baptist Press</a> <a href="https://religionnews.com/2026/06/23/a-rastafarians-supreme-court-loss-shows-religious-freedom-depends-on-who-you-are/">Religion News</a></span></p>
 <hr />
-<h2>🔥 Also Worth Noting</h2>
+<h2 class="b5">Also Worth Noting</h2>
 <p><em>Notable controversy and media shake-ups — reported with discernment, not appetite.</em></p>
-<p><strong>A Word of Faith dynasty reckons with a &ldquo;double life.&rdquo;</strong> Rhema Bible Church in Broken Arrow, Oklahoma fired co-pastor and COO Craig Hagin — grandson of Word of Faith founder Kenneth E. Hagin — on June 3 for unspecified misconduct, and on June 21 his parents, founding pastor Kenneth W. Hagin and his wife Lynette, told the congregation their son had been living a &ldquo;double life&rdquo; they called &ldquo;shocking and devastating.&rdquo; Reporting surfaced an earlier animal-cruelty arrest and allegations of infidelity; Craig&rsquo;s wife says she disclosed concerns to church leadership years ago. A sober case study in how succession and family loyalty can delay accountability in dynasty ministries. — <a href="https://roysreport.com/craig-hagins-parents-say-their-son-hid-his-double-life-his-wife-says-they-knew/">The Roys Report</a> · <a href="https://www.christianpost.com/news/craig-hagin-was-living-double-life-rhema-bible-church-says.html">Christian Post</a></p>
-<p><strong>Bethel Church moves to reform its culture.</strong> The Redding, California megachurch known for Bethel Music has announced reforms and deplatformed four men over misconduct, part of a governance-and-culture review prompted by a string of scandals. Whatever one makes of Bethel&rsquo;s theology, the instinct to examine the system rather than only the individuals is the harder and more faithful path. — <a href="https://roysreport.com/bethel-church-promises-reforms-deplatforms-four-men-accused-of-misconduct/">The Roys Report</a></p>
+<p><strong>A Word of Faith dynasty reckons with a &ldquo;double life.&rdquo;</strong> Rhema Bible Church in Broken Arrow, Oklahoma fired co-pastor and COO Craig Hagin — grandson of Word of Faith founder Kenneth E. Hagin — on June 3 for unspecified misconduct, and on June 21 his parents, founding pastor Kenneth W. Hagin and his wife Lynette, told the congregation their son had been living a &ldquo;double life&rdquo; they called &ldquo;shocking and devastating.&rdquo; Reporting surfaced an earlier animal-cruelty arrest and allegations of infidelity; Craig&rsquo;s wife says she disclosed concerns to church leadership years ago. A sober case study in how succession and family loyalty can delay accountability in dynasty ministries. <span class="src"><a href="https://roysreport.com/craig-hagins-parents-say-their-son-hid-his-double-life-his-wife-says-they-knew/">The Roys Report</a> <a href="https://www.christianpost.com/news/craig-hagin-was-living-double-life-rhema-bible-church-says.html">Christian Post</a></span></p>
+<p><strong>Bethel Church moves to reform its culture.</strong> The Redding, California megachurch known for Bethel Music has announced reforms and deplatformed four men over misconduct, part of a governance-and-culture review prompted by a string of scandals. Whatever one makes of Bethel&rsquo;s theology, the instinct to examine the system rather than only the individuals is the harder and more faithful path. <span class="src"><a href="https://roysreport.com/bethel-church-promises-reforms-deplatforms-four-men-accused-of-misconduct/">The Roys Report</a></span></p>
 <hr />
-<div class="elder"><h2>🧭 For the Elder&rsquo;s Desk</h2>
+<div class="elder"><h2>For the Elder&rsquo;s Desk</h2>
 <p><em>A pastoral takeaway for your leadership team this week.</em></p>
 <blockquote>
 <p>This week&rsquo;s Reformed headlines pair a firm &ldquo;no&rdquo; with a deliberate &ldquo;not yet&rdquo;: the PCA closed the deacon question quickly but kept the harder nationalism question open for another year of work. Both are forms of faithfulness — knowing which matters are settled by our standards and which require patient, careful labor before the church speaks. A question for your elders: <em>On the issues pressing our congregation right now, can we tell the difference between a matter our confession has already decided and a matter that still calls for slow, prayerful deliberation — and are we tempted to rush the second kind to feel decisive?</em></p>
 </blockquote>
 </div><hr />
 <p><em>State of the Church Today · Compiled June 28, 2026. Reply with corrections or tips. Forward to a fellow elder.</em></p></div>
-<footer class="foot">State of the Church Today · <a href="https://churchnews.therolstons.com/feed.xml" style="color:#8a8378">Podcast feed</a><br>Reply with corrections or tips. Forward to a fellow elder.</footer>
+<footer class="foot">State of the Church Today publishes every Sunday morning. <a href="https://churchnews.therolstons.com/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.</footer>
 </div></body></html>

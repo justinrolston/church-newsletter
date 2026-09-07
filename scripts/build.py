@@ -27,51 +27,84 @@ TAGLINE = "A weekly digest of Southern Baptist, Reformed, and broader theologica
 VOICE = os.environ.get("TTS_VOICE", "en-US-AndrewNeural")
 
 CSS = """
-:root{color-scheme:light}*{box-sizing:border-box}
-body{margin:0;background:#f4f1ea;color:#1c1a17;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:680px;margin:0 auto;padding:0 20px 60px}
-header.masthead{text-align:center;padding:44px 20px 28px;border-bottom:3px double #b9322f;margin-bottom:8px}
-.kicker{font-family:"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:#b9322f;font-weight:700;margin-bottom:14px}
-h1.title{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:700;letter-spacing:-.5px}
-h1.title a{color:inherit;text-decoration:none}
-.tagline{font-style:italic;color:#5a5349;font-size:16px;margin:0 auto;max-width:480px}
-.issueline{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378;margin-top:18px;font-weight:600}
-.audio{margin:26px 0 0;padding:14px 16px;background:#fffdf8;border:1px solid #ddd6c8;border-radius:6px}
-.audio label{display:block;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8a8378;margin-bottom:8px}
-.audio audio{width:100%}
-.body blockquote{background:#fffdf8;border-left:4px solid #b9322f;padding:18px 22px;margin:30px 0 10px;font-size:17px;font-style:italic;color:#36322c;border-radius:2px}
-.body blockquote p{margin:0}
-.body hr{border:0;border-top:1px solid #ddd6c8;margin:30px 0 8px}
-.body h2{font-family:"Helvetica Neue",Arial,sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin:22px 0 4px}
-.body h2+p em{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;font-style:normal}
-.body p{margin:0 0 22px}
-.body a{color:#b9322f;text-decoration:none;border-bottom:1px solid rgba(185,50,47,.3)}
-.body a:hover{border-bottom-color:#b9322f}
-.body .elder{background:#2c2a26;color:#ece7dc;border-radius:6px;padding:26px 28px;margin-top:34px}
-.body .elder h2{color:#e8b04b;margin-top:0}
-.body .elder h2+p em{color:#a39d8f}
-.body .elder blockquote{background:transparent;border:0;padding:0;margin:0;color:#ece7dc;font-size:16.5px}
-.body .elder strong,.body .elder em{color:#f3d99a}
-footer.foot{text-align:center;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:#8a8378;margin-top:36px;padding-top:22px;border-top:1px solid #ddd6c8;line-height:1.7}
-ul.issues{list-style:none;padding:0;margin:30px 0}
-ul.issues li{padding:16px 0;border-bottom:1px solid #ddd6c8}
-ul.issues .d{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8378}
-ul.issues a{color:#1c1a17;text-decoration:none;font-weight:700;font-size:19px}
-ul.issues .lede{font-style:italic;color:#5a5349;margin-top:6px}
-ul.issues .links{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;margin-top:6px}
-ul.issues .links a{color:#b9322f;font-weight:400;font-size:12.5px}
-@media(max-width:480px){h1.title{font-size:34px}}
+:root{color-scheme:light dark;
+--bg:#f6f7f7;--ink:#171d1c;--muted:#5d6866;--rule:#d8dedc;--panel:#ffffff;--accent:#1d5a86;--accent-ink:#ffffff;
+--b1:#1d5a86;--b2:#2a7f6f;--b3:#6b4f9e;--b4:#b3552b;--b5:#5f6b73}
+@media(prefers-color-scheme:dark){:root{--bg:#121716;--ink:#e5e9e8;--muted:#97a19e;--rule:#29312f;--panel:#1a201f;--accent:#7db8dc;--accent-ink:#0f1b24;
+--b1:#7db8dc;--b2:#6fc2b0;--b3:#b39ddb;--b4:#e39068;--b5:#9aa7ae}}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:660px;margin:0 auto;padding:0 22px 72px;overflow-wrap:anywhere}
+header.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:26px 0 14px;border-bottom:1px solid var(--rule)}
+header.masthead .wordmark{font-weight:700;font-size:1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+header.masthead .wordmark:hover{color:var(--accent)}
+header.masthead nav{font-size:.85rem;display:flex;gap:18px}
+header.masthead nav a{color:var(--muted);text-decoration:none}
+header.masthead nav a:hover{color:var(--accent)}
+.issuehead{padding:44px 0 8px}
+.issuehead .date{font-size:.9rem;color:var(--muted);margin:0 0 10px}
+.issuehead .date b{color:var(--ink);font-weight:600}
+h1.title{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;font-weight:700;margin:0}
+.body>blockquote:first-of-type{border:0;background:none;padding:0;margin:18px 0 6px;font-size:1.22rem;line-height:1.45;color:var(--ink)}
+.body>blockquote:first-of-type p{margin:0}
+.audio{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;align-items:center;margin:26px 0 6px;padding:16px 18px;background:var(--panel);border:1px solid var(--rule);border-radius:10px}
+.audio .play{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;grid-row:span 2}
+.audio .play svg{width:16px;height:16px;fill:currentColor;margin-left:2px}
+.audio .lbl{font-weight:600;font-size:.95rem;line-height:1.2}
+.audio .lbl span{color:var(--muted);font-weight:400;margin-left:6px}
+.audio audio{width:100%;min-width:0;height:36px;grid-column:2}
+.body hr{border:0;border-top:1px solid var(--rule);margin:36px 0 0}
+.body h2{position:relative;font-size:1.05rem;font-weight:700;margin:34px 0 4px;padding-top:14px}
+.body h2::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;border-radius:2px;background:var(--beat,var(--accent))}
+.body h2.b1{--beat:var(--b1)}.body h2.b2{--beat:var(--b2)}.body h2.b3{--beat:var(--b3)}.body h2.b4{--beat:var(--b4)}.body h2.b5{--beat:var(--b5)}
+.body h2+p em{font-style:normal;font-size:.9rem;color:var(--muted)}
+.body h2+p{margin-bottom:14px}
+.body p{margin:0 0 20px}
+.body a{color:var(--accent);text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 35%,transparent);text-underline-offset:3px}
+.body a:hover{text-decoration-color:var(--accent)}
+.body .src{font-size:.86rem;line-height:2}
+.body .src a{color:var(--muted);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:1px 9px;margin-left:4px;white-space:nowrap}
+.body .src a:hover{color:var(--accent);border-color:var(--accent)}
+.body .elder{margin:40px 0 0;padding:22px 24px 6px;border-left:3px solid var(--accent);background:var(--panel);border-radius:0 10px 10px 0}
+.body .elder h2{margin-top:0;padding-top:0}
+.body .elder h2::before{display:none}
+.body .elder blockquote{margin:0 0 16px;padding:0;font-size:1.05rem;line-height:1.6}
+.body .elder blockquote p{margin:0 0 14px}
+.body>p:last-child em{font-style:normal;font-size:.86rem;color:var(--muted)}
+footer.foot{font-size:.86rem;color:var(--muted);margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);line-height:1.7}
+footer.foot a{color:var(--muted)}
+.index-intro{padding:44px 0 10px}
+.index-intro h1{font-size:2.15rem;line-height:1.12;letter-spacing:-.02em;margin:0 0 10px}
+.index-intro p{margin:0;color:var(--muted);font-size:1.05rem;max-width:34em}
+ul.issues{list-style:none;padding:0;margin:26px 0 0}
+ul.issues li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 20px;padding:20px 0;border-top:1px solid var(--rule)}
+ul.issues .d{font-size:.86rem;color:var(--muted);line-height:1.5;padding-top:3px}
+ul.issues .d b{display:block;color:var(--ink);font-weight:600}
+ul.issues .lede{margin:0;line-height:1.5}
+ul.issues .lede a{color:var(--ink);text-decoration:none}
+ul.issues .lede a:hover{color:var(--accent)}
+ul.issues .links{grid-column:2;font-size:.86rem;margin-top:8px;display:flex;gap:14px}
+ul.issues .links a{color:var(--accent);text-decoration:none}
+ul.issues .links a:hover{text-decoration:underline}
+@media(max-width:540px){html{font-size:16px}h1.title,.index-intro h1{font-size:1.75rem}ul.issues li{grid-template-columns:1fr}ul.issues .lede,ul.issues .links{grid-column:1}header.masthead{flex-direction:column;gap:6px;align-items:flex-start}}
+@media(prefers-reduced-motion:no-preference){.body a,ul.issues a,header a{transition:color .15s}}
 """
 
 def page(title, body, extra_head=""):
     return f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>
+<meta name="description" content="{html.escape(TAGLINE)}">
 <link rel="alternate" type="application/rss+xml" title="{TITLE}" href="{SITE}/feed.xml">{extra_head}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>{CSS}</style></head><body><div class="wrap">
-<header class="masthead"><div class="kicker">Weekly Digest · SBC · Reformed · Theology</div>
-<h1 class="title"><a href="{SITE}/">{TITLE}</a></h1><p class="tagline">{TAGLINE}</p>{{ISSUELINE}}</header>
+<header class="masthead"><a class="wordmark" href="{SITE}/">{TITLE}</a>
+<nav><a href="{SITE}/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a></nav></header>
 {body}
-<footer class="foot">{TITLE} · <a href="{SITE}/feed.xml" style="color:#8a8378">Podcast feed</a><br>Reply with corrections or tips. Forward to a fellow elder.</footer>
+<footer class="foot">{TITLE} publishes every Sunday morning. <a href="{SITE}/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.</footer>
 </div></body></html>"""
 
 def load_issues():
@@ -94,18 +127,52 @@ def load_issues():
                         title=post.get("title", f"{TITLE} — Issue {post.get('issue')}")))
     return sorted(out, key=lambda i: (i["date"], i["issue"]))
 
+BEATS = [("SBC", "b1"), ("Reformed", "b2"), ("Theology", "b3"), ("Culture", "b4"), ("Also", "b5")]
+PLAY_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>'
+
+def beat_class(text):
+    for key, cls in BEATS:
+        if key.lower() in text.lower(): return cls
+    return ""
+
+def mp3_duration(path):
+    try:
+        from mutagen.mp3 import MP3
+        return f"{int(MP3(path).info.length) // 60} min"
+    except Exception:
+        return ""
+
+def short_title(t):
+    return t.replace(TITLE + " — ", "")
+
 def render_issue(i, has_audio):
     md = markdown.Markdown(extensions=["smarty"])
     body_html = md.convert(i["body"])
-    # wrap the Elder's Desk section in the dark block
-    body_html = re.sub(r'(<h2>🧭 For the Elder.*?)(?=<hr\s*/?>|<p><em>State of the Church Today ·)',
+    # strip emoji from beat headers and tag each with its beat colour
+    def fix_h2(m):
+        text = re.sub(r"^[^\w(]+", "", m.group(1)).strip()
+        cls = beat_class(text)
+        return f'<h2 class="{cls}">{text}</h2>' if cls else f"<h2>{text}</h2>"
+    body_html = re.sub(r"<h2>(.*?)</h2>", fix_h2, body_html)
+    # "— [Source](url) · [Source](url)" tails become source tags
+    LINK = r"<a [^>]+>[^<]+</a>"
+    body_html = re.sub(r"\s*[—–-]\s*(" + LINK + r"(?:\s*·\s*" + LINK + r")*)\s*(?=</p>)",
+                       lambda m: ' <span class="src">' + re.sub(r"\s*·\s*", " ", m.group(1)) + "</span>", body_html)
+    # wrap the Elder's Desk section in the accented panel
+    body_html = re.sub(r"(<h2[^>]*>For the Elder.*?)(?=<hr\s*/?>|<p><em>State of the Church Today)",
                        r'<div class="elder">\1</div>', body_html, flags=re.S)
-    issueline = f'<div class="issueline">Issue {i["issue"]:02d} · {i["date"].strftime("%A, %B %-d, %Y")}</div>'
+    head = (f'<div class="issuehead"><p class="date">{i["date"].strftime("%A, %B %-d, %Y")}</p>'
+            f'<h1 class="title">{html.escape(short_title(i["title"]))}</h1></div>')
     audio = ""
     if has_audio:
-        audio = f'<div class="audio"><label>Listen to this issue</label><audio controls preload="none" src="{SITE}/audio/{i["slug"]}.mp3"></audio></div>'
-    out = page(i["title"], f'{audio}<div class="body">{body_html}</div>')
-    return out.replace("{ISSUELINE}", issueline)
+        dur = mp3_duration(DOCS / "audio" / f"{i['slug']}.mp3")
+        audio = (f'<div class="audio"><div class="play">{PLAY_SVG}</div><div class="lbl">Listen to this issue'
+                 f'{"<span>" + dur + "</span>" if dur else ""}</div>'
+                 f'<audio controls preload="none" src="{SITE}/audio/{i["slug"]}.mp3"></audio></div>')
+    # lede first, then the player, then the rest
+    lede_m = re.match(r"\s*(<blockquote>.*?</blockquote>)(.*)", body_html, flags=re.S)
+    body_html = (lede_m.group(1) + audio + lede_m.group(2)) if lede_m else (audio + body_html)
+    return page(i["title"], f'{head}<div class="body">{body_html}</div>')
 
 def render_index(issues, audio_slugs):
     items = []
@@ -113,11 +180,10 @@ def render_index(issues, audio_slugs):
         links = [f'<a href="issues/{i["slug"]}.html">Read</a>']
         if i["slug"] in audio_slugs: links.append(f'<a href="audio/{i["slug"]}.mp3">Listen</a>')
         links.append(f'<a href="{SITE}/issues/{i["slug"]}.md">Markdown</a>')
-        items.append(f'<li><div class="d">Issue {i["issue"]:02d} · {i["date"].strftime("%B %-d, %Y")}</div>'
-                     f'<a href="issues/{i["slug"]}.html">{html.escape(i["title"])}</a>'
-                     f'<div class="lede">{html.escape(i["lede"])}</div><div class="links">{" · ".join(links)}</div></li>')
-    out = page(TITLE, f'<ul class="issues">{"".join(items)}</ul>')
-    return out.replace("{ISSUELINE}", '<div class="issueline">Every Sunday</div>')
+        items.append(f'<li><div class="d"><b>Issue {i["issue"]}</b>{i["date"].strftime("%b %-d, %Y")}</div>'
+                     f'<p class="lede"><a href="issues/{i["slug"]}.html">{html.escape(i["lede"])}</a></p><div class="links">{"".join(links)}</div></li>')
+    intro = f'<div class="index-intro"><h1>{TITLE}</h1><p>{html.escape(TAGLINE)}</p></div>'
+    return page(TITLE, intro + f'<ul class="issues">{"".join(items)}</ul>')
 
 # ---------- audio ----------
 def tts_script(i):

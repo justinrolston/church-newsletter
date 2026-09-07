@@ -217,7 +217,7 @@ def tts_script(i):
     t = re.sub(r"[*_`#>]", "", t)
     t = re.sub(r"\n{3,}", "\n\n", t).strip()
     intro = f"{TITLE}. Issue {i['issue']}, {i['date'].strftime('%B %-d, %Y')}. {TAGLINE}\n\n"
-    return intro + t + "\n\nThat's this week's State of the Church Today. Forward it to a fellow elder."
+    return intro + t + "\n\nThat's this week's State of the Church Today. New issues every Sunday morning."
 
 async def make_audio(i, out: Path):
     import edge_tts

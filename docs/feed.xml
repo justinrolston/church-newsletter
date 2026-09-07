@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>State of the Church Today</title><link>https://churchnews.therolstons.com/</link><language>en-us</language>
+<description>A weekly digest of Southern Baptist, Reformed, and broader theological news — curated for pastors and elders.</description>
+<itunes:author>Justin Rolston</itunes:author>
+<atom:link href="https://churchnews.therolstons.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+</channel></rss>

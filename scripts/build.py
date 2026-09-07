@@ -146,7 +146,9 @@ BEATS = [("SBC", "b1"), ("Reformed", "b2"), ("Theology", "b3"), ("Culture", "b4"
 SUN_SVG = '<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 MOON_SVG = '<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
 FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1d5a86"/>'
-           '<text x="32" y="45" text-anchor="middle" font-family="Instrument Sans,Helvetica,Arial,sans-serif" font-weight="700" font-size="38" fill="#fff">S</text></svg>')
+           '<g fill="#fff"><rect x="30" y="8" width="4" height="14"/><rect x="25" y="12" width="14" height="4"/>'
+           '<path d="M32 20 L44 30 L44 52 L20 52 L20 30 Z"/><path d="M14 36 L20 31 L20 52 L14 52 Z"/><path d="M50 36 L44 31 L44 52 L50 52 Z"/></g>'
+           '<rect x="29" y="40" width="6" height="12" fill="#1d5a86"/></svg>')
 PLAY_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>'
 
 def beat_class(text):

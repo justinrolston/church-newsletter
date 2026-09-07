@@ -107,7 +107,8 @@ def page(title, body, extra_head=""):
     return f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(TAGLINE)}">
-<link rel="alternate" type="application/rss+xml" title="{TITLE}" href="{SITE}/feed.xml">{extra_head}
+<link rel="alternate" type="application/rss+xml" title="{TITLE}" href="{SITE}/feed.xml">
+<link rel="icon" href="{SITE}/favicon.svg" type="image/svg+xml">{extra_head}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>{CSS}</style>
@@ -144,6 +145,8 @@ def load_issues():
 BEATS = [("SBC", "b1"), ("Reformed", "b2"), ("Theology", "b3"), ("Culture", "b4"), ("Also", "b5")]
 SUN_SVG = '<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
 MOON_SVG = '<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
+FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1d5a86"/>'
+           '<text x="32" y="45" text-anchor="middle" font-family="Instrument Sans,Helvetica,Arial,sans-serif" font-weight="700" font-size="38" fill="#fff">S</text></svg>')
 PLAY_SVG = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>'
 
 def beat_class(text):
@@ -284,6 +287,7 @@ def main():
         "html_url": f"{SITE}/issues/{i['slug']}.html", "md_url": f"{SITE}/issues/{i['slug']}.md",
         "mp3_url": f"{SITE}/audio/{i['slug']}.mp3" if i["slug"] in audio_slugs else None,
     } for i in reversed(issues)], indent=2))
+    (DOCS / "favicon.svg").write_text(FAVICON)
     (DOCS / ".nojekyll").touch()
     print(f"built {len(issues)} issues, {len(audio_slugs)} with audio")
 

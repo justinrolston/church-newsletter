@@ -102,9 +102,9 @@ def page(title, body, extra_head=""):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>{CSS}</style></head><body><div class="wrap">
 <header class="masthead"><a class="wordmark" href="{SITE}/">{TITLE}</a>
-<nav><a href="{SITE}/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a></nav></header>
+<nav><a href="{SITE}/issues/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a></nav></header>
 {body}
-<footer class="foot">{TITLE} publishes every Sunday morning. <a href="{SITE}/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.</footer>
+<footer class="foot">{TITLE} publishes every Sunday morning. <a href="{SITE}/feed.xml">Subscribe to the audio edition</a> in any podcast app.<br>Reply with corrections or tips. Forward to a fellow elder.<br>Powered by <a href="https://bishop.therolstons.com/">the Bishop</a>.</footer>
 </div></body></html>"""
 
 def load_issues():
@@ -145,7 +145,7 @@ def mp3_duration(path):
 def short_title(t):
     return t.replace(TITLE + " — ", "")
 
-def render_issue(i, has_audio):
+def render_issue(i, has_audio, home=False):
     md = markdown.Markdown(extensions=["smarty"])
     body_html = md.convert(i["body"])
     # strip emoji from beat headers and tag each with its beat colour
@@ -161,7 +161,7 @@ def render_issue(i, has_audio):
     # wrap the Elder's Desk section in the accented panel
     body_html = re.sub(r"(<h2[^>]*>For the Elder.*?)(?=<hr\s*/?>|<p><em>State of the Church Today)",
                        r'<div class="elder">\1</div>', body_html, flags=re.S)
-    head = (f'<div class="issuehead"><p class="date">{i["date"].strftime("%A, %B %-d, %Y")}</p>'
+    head = (f'<div class="issuehead"><p class="date">{"Latest issue &nbsp; " if home else ""}{i["date"].strftime("%A, %B %-d, %Y")}</p>'
             f'<h1 class="title">{html.escape(short_title(i["title"]))}</h1></div>')
     audio = ""
     if has_audio:
@@ -172,18 +172,19 @@ def render_issue(i, has_audio):
     # lede first, then the player, then the rest
     lede_m = re.match(r"\s*(<blockquote>.*?</blockquote>)(.*)", body_html, flags=re.S)
     body_html = (lede_m.group(1) + audio + lede_m.group(2)) if lede_m else (audio + body_html)
-    return page(i["title"], f'{head}<div class="body">{body_html}</div>')
+    canon = f'<link rel="canonical" href="{SITE}/issues/{i["slug"]}.html">' if home else ""
+    return page(TITLE if home else i["title"], f'{head}<div class="body">{body_html}</div>', extra_head=canon)
 
 def render_index(issues, audio_slugs):
     items = []
     for i in reversed(issues):
-        links = [f'<a href="issues/{i["slug"]}.html">Read</a>']
-        if i["slug"] in audio_slugs: links.append(f'<a href="audio/{i["slug"]}.mp3">Listen</a>')
+        links = [f'<a href="{SITE}/issues/{i["slug"]}.html">Read</a>']
+        if i["slug"] in audio_slugs: links.append(f'<a href="{SITE}/audio/{i["slug"]}.mp3">Listen</a>')
         links.append(f'<a href="{SITE}/issues/{i["slug"]}.md">Markdown</a>')
         items.append(f'<li><div class="d"><b>Issue {i["issue"]}</b>{i["date"].strftime("%b %-d, %Y")}</div>'
-                     f'<p class="lede"><a href="issues/{i["slug"]}.html">{html.escape(i["lede"])}</a></p><div class="links">{"".join(links)}</div></li>')
-    intro = f'<div class="index-intro"><h1>{TITLE}</h1><p>{html.escape(TAGLINE)}</p></div>'
-    return page(TITLE, intro + f'<ul class="issues">{"".join(items)}</ul>')
+                     f'<p class="lede"><a href="{SITE}/issues/{i["slug"]}.html">{html.escape(i["lede"])}</a></p><div class="links">{"".join(links)}</div></li>')
+    intro = f'<div class="index-intro"><h1>All issues</h1><p>{html.escape(TAGLINE)}</p></div>'
+    return page(f"All issues — {TITLE}", intro + f'<ul class="issues">{"".join(items)}</ul>')
 
 # ---------- audio ----------
 def tts_script(i):
@@ -256,7 +257,9 @@ def main():
     for i in issues:
         (DOCS / "issues" / f"{i['slug']}.html").write_text(render_issue(i, i["slug"] in audio_slugs))
         (DOCS / "issues" / f"{i['slug']}.md").write_text(i["path"].read_text())
-    (DOCS / "index.html").write_text(render_index(issues, audio_slugs))
+    (DOCS / "issues" / "index.html").write_text(render_index(issues, audio_slugs))
+    latest = issues[-1]
+    (DOCS / "index.html").write_text(render_issue(latest, latest["slug"] in audio_slugs, home=True))
     (DOCS / "feed.xml").write_text(build_feed(issues, audio_slugs))
     (DOCS / "issues.json").write_text(json.dumps([{
         "issue": i["issue"], "date": i["date"].isoformat(), "title": i["title"], "lede": i["lede"],

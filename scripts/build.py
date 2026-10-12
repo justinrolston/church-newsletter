@@ -99,6 +99,25 @@ ul.issues .lede a:hover{color:var(--accent)}
 ul.issues .links{grid-column:2;font-size:.86rem;margin-top:8px;display:flex;gap:14px}
 ul.issues .links a{color:var(--accent);text-decoration:none}
 ul.issues .links a:hover{text-decoration:underline}
+.sources h2{font-size:1.05rem;font-weight:700;margin:40px 0 4px;padding-top:14px;position:relative}
+.sources h2::before{content:"";position:absolute;top:0;left:0;width:34px;height:3px;border-radius:2px;background:var(--beat,var(--accent))}
+.sources h2.b1{--beat:var(--b1)}.sources h2.b2{--beat:var(--b2)}.sources h2.b3{--beat:var(--b3)}.sources h2.b4{--beat:var(--b4)}.sources h2.b5{--beat:var(--b5)}
+.sources .note{margin:0 0 12px;color:var(--muted);font-size:.9rem}
+.sources .how p{margin:0 0 16px}
+ul.srcs{list-style:none;padding:0;margin:8px 0 0}
+ul.srcs li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule)}
+ul.srcs .n{font-weight:600}
+ul.srcs .n a{color:var(--ink);text-decoration:none}
+ul.srcs .n a:hover{color:var(--accent)}
+ul.srcs .dom{display:block;font-weight:400;font-size:.84rem;color:var(--muted)}
+ul.srcs .c{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+ul.srcs .c b{color:var(--ink);font-weight:600}
+ul.srcs .bar{grid-column:1/-1;height:3px;border-radius:2px;background:var(--rule);overflow:hidden}
+ul.srcs .bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+ul.tail{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+ul.tail a{display:inline-block;font-size:.86rem;color:var(--muted);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+ul.tail a:hover{color:var(--accent);border-color:var(--accent)}
+ul.tail span{color:var(--ink);margin-left:6px}
 @media(max-width:540px){html{font-size:16px}h1.title,.index-intro h1{font-size:1.75rem}ul.issues li{grid-template-columns:1fr}ul.issues .lede,ul.issues .links{grid-column:1}header.masthead{flex-direction:column;gap:6px;align-items:flex-start}}
 @media(prefers-reduced-motion:no-preference){.body a,ul.issues a,header a{transition:color .15s}}
 """
@@ -114,10 +133,10 @@ def page(title, body, extra_head=""):
 <style>{CSS}</style>
 <script>try{{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script></head><body><div class="wrap">
 <header class="masthead"><a class="wordmark" href="{SITE}/">{TITLE}</a>
-<nav><a href="{SITE}/issues/">All issues</a><a href="{SITE}/feed.xml">Podcast feed</a>
+<nav><a href="{SITE}/issues/">All issues</a><a href="{SITE}/sources/">Sources</a><a href="{SITE}/feed.xml">Podcast feed</a>
 <button class="theme" type="button" aria-label="Switch between light and dark mode" title="Light or dark mode">{SUN_SVG}{MOON_SVG}</button></nav></header>
 {body}
-<footer class="foot"><span>New issues every Sunday morning. Corrections and tips welcome.</span><span>Powered by <a href="https://bishop.therolstons.com/">the Bishop</a></span></footer>
+<footer class="foot"><span>New issues every Sunday morning. Corrections and tips welcome. <a href="{SITE}/sources/">Our sources</a></span><span>Powered by <a href="https://bishop.therolstons.com/">the Bishop</a></span></footer>
 </div>
 <script>document.querySelector(".theme").addEventListener("click",function(){{var r=document.documentElement,d=r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),n=d==="dark"?"light":"dark";r.dataset.theme=n;try{{localStorage.setItem("theme",n)}}catch(e){{}}}});</script>
 </body></html>"""
@@ -209,6 +228,83 @@ def render_index(issues, audio_slugs):
     intro = f'<div class="index-intro"><h1>All issues</h1><p>{html.escape(TAGLINE)}</p></div>'
     return page(f"All issues — {TITLE}", intro + f'<ul class="issues">{"".join(items)}</ul>')
 
+# ---------- sources page ----------
+SOURCE_GROUPS = [
+    ("SBC and Baptist news", "b1", ["baptistpress.com", "mbcpathway.com", "brnow.org", "baptiststandard.com", "thebaptistpaper.org",
+        "baptistnews.com", "tnbaptist.org", "thealabamabaptist.org", "baptistmessenger.com", "erlc.com", "sebts.edu",
+        "news.lifeway.com", "research.lifeway.com"]),
+    ("Reformed and confessional", "b2", ["heidelblog.net", "founders.org", "grimkeseminary.org", "byfaithonline.com", "pcaga.org", "opc.org",
+        "9marks.org", "thegospelcoalition.org", "reformedbaptistnetwork.com", "americanreformer.org", "clearlyreformed.org",
+        "albertmohler.com", "foundersseminary.org", "founderspress.org", "grimkeeurope.org", "crossway.org"]),
+    ("Religion and news", "b3", ["religionnews.com", "roysreport.com", "wng.org", "christianpost.com", "christianitytoday.com",
+        "churchleaders.com", "ministrywatch.com", "religionunplugged.com", "persecution.org", "baptistreport.substack.com"]),
+    ("Law and civil liberties", "b4", ["scotusblog.com", "firstliberty.org", "becketfund.org", "justice.gov", "constitutioncenter.org",
+        "napalegalinstitute.org"]),
+]
+SOURCE_NAMES = {
+    "baptistpress.com": "Baptist Press", "mbcpathway.com": "The Missouri Pathway", "brnow.org": "Biblical Recorder",
+    "baptiststandard.com": "Baptist Standard", "thebaptistpaper.org": "The Baptist Paper", "baptistnews.com": "Baptist News Global",
+    "tnbaptist.org": "Baptist and Reflector", "thealabamabaptist.org": "The Alabama Baptist", "baptistmessenger.com": "Baptist Messenger",
+    "erlc.com": "ERLC", "sebts.edu": "Southeastern Seminary", "news.lifeway.com": "Lifeway News", "research.lifeway.com": "Lifeway Research",
+    "heidelblog.net": "The Heidelblog", "founders.org": "Founders Ministries", "grimkeseminary.org": "Grimké Seminary",
+    "byfaithonline.com": "By Faith", "pcaga.org": "PCA General Assembly", "opc.org": "Orthodox Presbyterian Church",
+    "9marks.org": "9Marks", "thegospelcoalition.org": "The Gospel Coalition", "reformedbaptistnetwork.com": "Reformed Baptist Network",
+    "americanreformer.org": "American Reformer", "clearlyreformed.org": "Clearly Reformed", "albertmohler.com": "Albert Mohler",
+    "foundersseminary.org": "Founders Seminary", "founderspress.org": "Founders Press", "grimkeeurope.org": "Grimké Europe",
+    "crossway.org": "Crossway", "religionnews.com": "Religion News Service", "roysreport.com": "Roys Report", "wng.org": "WORLD",
+    "christianpost.com": "The Christian Post", "christianitytoday.com": "Christianity Today", "churchleaders.com": "ChurchLeaders",
+    "ministrywatch.com": "MinistryWatch", "religionunplugged.com": "Religion Unplugged", "persecution.org": "International Christian Concern",
+    "baptistreport.substack.com": "The Baptist Report", "scotusblog.com": "SCOTUSblog", "firstliberty.org": "First Liberty",
+    "becketfund.org": "Becket", "justice.gov": "U.S. Department of Justice", "constitutioncenter.org": "National Constitution Center",
+    "napalegalinstitute.org": "NAPA Legal Institute",
+}
+SRC_LINE = re.compile(r"—\s*((?:\[[^\]]+\]\(https?://[^)\s]+\)(?:\s*·\s*)?)+)\s*$")
+SRC_LINK = re.compile(r"\]\(https?://(?:www\.)?([^/)\s]+)")
+
+def count_sources(issues):
+    counts = {}
+    for i in issues:
+        for line in i["body"].splitlines():
+            m = SRC_LINE.search(line)
+            if not m: continue
+            for dom in SRC_LINK.findall(m.group(1)):
+                counts[dom.lower()] = counts.get(dom.lower(), 0) + 1
+    return counts
+
+def _src_row(dom, n, top):
+    name = SOURCE_NAMES.get(dom, dom)
+    sub = f'<span class="dom">{html.escape(dom)}</span>' if name != dom else ""
+    bar = f'<span class="bar"><i style="width:{round(100 * n / top)}%"></i></span>'
+    return (f'<li><span class="n"><a href="https://{html.escape(dom)}/">{html.escape(name)}</a>{sub}</span>'
+            f'<span class="c"><b>{n}</b> {"citation" if n == 1 else "citations"}</span>{bar}</li>')
+
+def render_sources(issues):
+    counts = count_sources(issues)
+    total = sum(counts.values())
+    top = max(counts.values()) if counts else 1
+    grouped = {d for _, _, doms in SOURCE_GROUPS for d in doms}
+    intro = (f'<div class="index-intro"><h1>Sources</h1><p>Where the items in {len(issues)} issues come from: '
+             f'{total} citations across {len(counts)} sites.</p></div>')
+    how = ('<div class="how"><p>This is a weekly curated digest for pastors and elders. Each issue draws on the last seven to ten days, '
+           'and every item links to the report it rests on. We prefer a news report over an organization&rsquo;s own page, and the tone is '
+           'reported with discernment, not appetite.</p>'
+           '<p>A few notes on method. WORLD is gated, so we write only from what is visible without a subscription. Baptist Press items are '
+           'often read through the Missouri Pathway republication but cited as Baptist Press. Founders and Grimk&eacute; items are framed as '
+           'announcements, not news.</p></div>')
+    parts = [intro, f'<div class="sources">{how}']
+    ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    parts.append('<h2>Most cited</h2><ul class="srcs">' + "".join(_src_row(d, n, top) for d, n in ranked[:6]) + '</ul>')
+    for label, cls, doms in SOURCE_GROUPS:
+        rows = sorted(((d, counts[d]) for d in doms if d in counts), key=lambda kv: (-kv[1], kv[0]))
+        if not rows: continue
+        parts.append(f'<h2 class="{cls}">{label}</h2><ul class="srcs">' + "".join(_src_row(d, n, top) for d, n in rows) + '</ul>')
+    rest = sorted(((d, n) for d, n in counts.items() if d not in grouped), key=lambda kv: (-kv[1], kv[0]))
+    if rest:
+        parts.append('<h2 class="b5">Everything else</h2><p class="note">Single reports and occasional sources, most cited first.</p><ul class="tail">'
+                     + "".join(f'<li><a href="https://{html.escape(d)}/">{html.escape(d)}<span>{n}</span></a></li>' for d, n in rest) + '</ul>')
+    parts.append('</div>')
+    return page(f"Sources — {TITLE}", "".join(parts))
+
 # ---------- audio ----------
 def tts_script(i):
     t = i["body"]
@@ -281,6 +377,8 @@ def main():
         (DOCS / "issues" / f"{i['slug']}.html").write_text(render_issue(i, i["slug"] in audio_slugs))
         (DOCS / "issues" / f"{i['slug']}.md").write_text(i["path"].read_text())
     (DOCS / "issues" / "index.html").write_text(render_index(issues, audio_slugs))
+    (DOCS / "sources").mkdir(exist_ok=True)
+    (DOCS / "sources" / "index.html").write_text(render_sources(issues))
     latest = issues[-1]
     (DOCS / "index.html").write_text(render_issue(latest, latest["slug"] in audio_slugs, home=True))
     (DOCS / "feed.xml").write_text(build_feed(issues, audio_slugs))

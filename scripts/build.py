@@ -232,7 +232,8 @@ def render_index(issues, audio_slugs):
 SOURCE_GROUPS = [
     ("SBC and Baptist news", "b1", ["baptistpress.com", "mbcpathway.com", "brnow.org", "baptiststandard.com", "thebaptistpaper.org",
         "baptistnews.com", "tnbaptist.org", "thealabamabaptist.org", "baptistmessenger.com", "erlc.com", "sebts.edu",
-        "news.lifeway.com", "research.lifeway.com"]),
+        "news.lifeway.com", "research.lifeway.com", "scbo.org", "sendnetwork.com", "harbornetwork.com",
+        "libertychurchnetwork.com"]),
     ("Reformed and confessional", "b2", ["heidelblog.net", "founders.org", "grimkeseminary.org", "byfaithonline.com", "pcaga.org", "opc.org",
         "9marks.org", "thegospelcoalition.org", "reformedbaptistnetwork.com", "americanreformer.org", "clearlyreformed.org",
         "albertmohler.com", "foundersseminary.org", "founderspress.org", "grimkeeurope.org", "crossway.org"]),
@@ -246,6 +247,8 @@ SOURCE_NAMES = {
     "baptiststandard.com": "Baptist Standard", "thebaptistpaper.org": "The Baptist Paper", "baptistnews.com": "Baptist News Global",
     "tnbaptist.org": "Baptist and Reflector", "thealabamabaptist.org": "The Alabama Baptist", "baptistmessenger.com": "Baptist Messenger",
     "erlc.com": "ERLC", "sebts.edu": "Southeastern Seminary", "news.lifeway.com": "Lifeway News", "research.lifeway.com": "Lifeway Research",
+    "scbo.org": "State Convention of Baptists in Ohio", "sendnetwork.com": "Send Network", "harbornetwork.com": "Harbor Network",
+    "libertychurchnetwork.com": "Liberty Church Network",
     "heidelblog.net": "The Heidelblog", "founders.org": "Founders Ministries", "grimkeseminary.org": "Grimké Seminary",
     "byfaithonline.com": "By Faith", "pcaga.org": "PCA General Assembly", "opc.org": "Orthodox Presbyterian Church",
     "9marks.org": "9Marks", "thegospelcoalition.org": "The Gospel Coalition", "reformedbaptistnetwork.com": "Reformed Baptist Network",
@@ -289,7 +292,7 @@ def render_sources(issues):
            'and every item links to the report it rests on. We prefer a news report over an organization&rsquo;s own page, and the tone is '
            'reported with discernment, not appetite.</p>'
            '<p>A few notes on method. WORLD is gated, so we write only from what is visible without a subscription. Baptist Press items are '
-           'often read through the Missouri Pathway republication but cited as Baptist Press. Founders and Grimk&eacute; items are framed as '
+           'often read through the Missouri Pathway republication but cited as Baptist Press. Founders, Grimk&eacute;, and convention or church-planting network items are framed as '
            'announcements, not news.</p></div>')
     parts = [intro, f'<div class="sources">{how}']
     ranked = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))

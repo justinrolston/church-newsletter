@@ -50,6 +50,8 @@ Prefer items from the last 7–10 days. Beats: SBC & Convention Watch · Reforme
 Check these directly every week, not just via keyword search:
 - WORLD (wng.org) — best for Culture & Church-State. Gated; write only from what's visible.
 - Founders (founders.org) and Grimké Seminary (grimkeseminary.org) — announcements, articles, conferences. Frame as announcements, not news.
+- SBC & Convention Watch networks: State Convention of Baptists in Ohio (scbo.org), Send Network (sendnetwork.com, incl. Send Network Ohio), Harbor Network (harbornetwork.com, Louisville church-planting network), and Liberty Church Network (libertychurchnetwork.com, Falwell/Liberty-rooted planting network). Frame their own posts as announcements.
+- 9Marks (9marks.org) — articles and conferences for Reformed & Confessional / Theology beats.
 
 Sourcing lessons (keep updating):
 - Baptist Press's own site returns stale results in search and fetches empty. **The Missouri Pathway (mbcpathway.com) republishes BP with clean dates — use it as the primary SBC source.** Also Biblical Recorder (brnow.org), Baptist Standard, The Baptist Paper.
